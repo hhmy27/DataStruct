@@ -9,7 +9,8 @@
 #include "DoubleBubbleSort.h"
 #include "InsertSort.h"
 #include "SelectSort.h"
-#include "2_MergeSort.h"
+#include "MergeSort_2.h"
+#include "ShellSort.h"
 
 int main() {
     int A[] = {5, 1, 3, 4, 2};
@@ -17,8 +18,8 @@ int main() {
 //    doubleBubbleSort(A, len(A));
 //    insertSort(A, len(A));
 //    selectSort(A, len(A));
-//    mergeSort(A, len(A));
-
+//    mergeSort_2(A, len(A));
+    mergeSort_2(A, len(A));
+//    shellSort(A,len(A));
     visitArray(A);
-
 }

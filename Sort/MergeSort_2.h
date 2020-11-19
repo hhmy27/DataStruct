@@ -2,8 +2,8 @@
 // Created by hmy on 2020/11/17.
 //
 
-#ifndef DATASTRUCT_2_MERGESORT_H
-#define DATASTRUCT_2_MERGESORT_H
+#ifndef DATASTRUCT_MERGESORT_2_H
+#define DATASTRUCT_MERGESORT_2_H
 
 #include "tool.h"
 
@@ -36,18 +36,18 @@ void merge(int *A, int left, int mid, int right) {
 
 }
 
-void mergeSort__(int *A, int left, int right) {
+void mergeSort_2__(int *A, int left, int right) {
     if (left >= right)
         return;
     int mid = (left + right) / 2;
-    mergeSort__(A, left, mid);
-    mergeSort__(A, mid + 1, right);
+    mergeSort_2__(A, left, mid);
+    mergeSort_2__(A, mid + 1, right);
     merge(A, left, mid, right);
 }
 
 
-void mergeSort(int *A, int n) {
-    quickSort__(A, 0, n - 1);
+void mergeSort_2(int *A, int n) {
+    mergeSort_2__(A, 0, n - 1);
 }
 
-#endif //DATASTRUCT_2_MERGESORT_H
+#endif //DATASTRUCT_MERGESORT_2_H
