@@ -5,6 +5,7 @@
 #ifndef DATASTRUCT_TOOL_H
 #define DATASTRUCT_TOOL_H
 
+// only effect at A is int []
 #define len(A) (sizeof(A)/sizeof(int))
 
 #define fori(A) for(int i=0;i<len(A);i++)
