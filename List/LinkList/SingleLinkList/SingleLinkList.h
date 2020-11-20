@@ -6,6 +6,7 @@
 #define DATASTRUCT_SINGLELINKLIST_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 // Single link list has head node which store the number of node
 // L is head node,L->next is first node
@@ -53,6 +54,7 @@ LinkList createLinkList(int *A, int n) {
         tail->next = t;
         tail = t;
     }
+    return L;
 }
 
 void addNodeNum(LinkList L) {
@@ -129,10 +131,25 @@ void sortLinkList(LinkList L) {
     }
 }
 
-Array transformToArray(LinkList L) {
-    Array a = (Array) malloc(sizeof(Array));
-    a->arr = (int *) malloc(sizeof(int) * L->val);
+void visitLinkList(LinkList L) {
+    Node *head = getLinkListHead(L);
+    Node *t = head->next;
+    while (t) {
+        printf("%d ", t->val);
+        t = t->next;
+    }
+}
 
+Array *transformToArray(LinkList L) {
+    Array a = (Array) malloc(sizeof(struct array));
+    a->arr = (int *) malloc(sizeof(int) * L->val);
+    a->size = L->val;
+    Node *t = L->next;
+    int i = 0;
+    while (t) {
+        a->arr[i++] = t->val;
+        t = t->next;
+    }
     return a;
 }
 
