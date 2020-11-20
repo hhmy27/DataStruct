@@ -41,7 +41,7 @@ void bucketSort(int *A, int n) {
 
     int ind = 0;
     for (int i = 0; i < d; i++) {
-        Array a = transformToArray(buckets[i]);
+        Array a = (Array) transformToArray(buckets[i]);
         int *arr = a->arr;
         for (int j = 0; j < a->size; j++) {
             A[ind++] = arr[j];
