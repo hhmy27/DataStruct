@@ -4,4 +4,4 @@ project(DataStruct C)
 set(CMAKE_C_STANDARD 99)
 aux_source_directory(./Sort FILES_SORT)
 
-add_executable(DataStruct ${FILES_SORT} Sort/BubbleSort.h Sort/DoubleBubbleSort.h Sort/InsertSort.h Sort/SelectSort.h Sort/MergeSort_2.h Sort/ShellSort.h Sort/CountingSort.h Sort/BucketSort.h List/LinkList/SingleLinkList/SingleLinkList.h List/SequenceList/SequenceList.h Sort/RadixSort.h)
+add_executable(DataStruct ${FILES_SORT} Sort/BubbleSort.h Sort/DoubleBubbleSort.h Sort/InsertSort.h Sort/SelectSort.h Sort/MergeSort_2.h Sort/ShellSort.h Sort/CountingSort.h Sort/BucketSort.h List/LinkList/SingleLinkList/SingleLinkList.h List/SequenceList/SequenceList.h Sort/RadixSort.h Sort/HeapSort.h Heap/MaxHeap.h Heap/MinHeap.h)

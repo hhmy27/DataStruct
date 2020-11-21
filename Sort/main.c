@@ -15,6 +15,8 @@
 #include "../List/LinkList/SingleLinkList/SingleLinkList.h"
 #include "BucketSort.h"
 #include "RadixSort.h"
+#include "HeapSort.h"
+
 
 int main() {
     int A[] = {5, 1, 3, 4, 2};
@@ -39,4 +41,6 @@ int main() {
 //    bucketSort(A,len(A));
 //    radixSort(B, len(B), 2);
 //    visitArray(B);
+    heapSort(A, len(A));
+    visitArray(A);
 }
