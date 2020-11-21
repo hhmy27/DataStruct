@@ -20,7 +20,7 @@ Coding style:
 
 I make a mind map to help you understand this repo struct
 
-You can check the latest version of the mind map here: [link](https://github.com/hhmy27/myMindMaps/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/DataStruct.xmind)
+You can check the latest version of the mind map here: [link](https://github.com/hhmy27/myMindMaps/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/DataStructRepo.xmind)
 
 ![image-20201121205036647](MdAsset/README/image-20201121205036647.png)
 
