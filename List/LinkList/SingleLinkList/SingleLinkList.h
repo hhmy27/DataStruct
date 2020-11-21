@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 // Single link list has head node which store the number of node
+// this version has not tail pointer, so operate at tail will iterate all link list
 // L is head node,L->next is first node
 
 typedef struct node {
@@ -21,6 +22,10 @@ typedef struct array {
     int size;
 } *Array;
 
+// 1 denote empty
+int isEmptyLinkList(LinkList L) {
+    return L->val == 0;
+}
 
 LinkList createEmptyLinkList() {
     LinkList L = (LinkList) malloc(sizeof(HeadNode));
@@ -43,7 +48,7 @@ Node *getLinkListHead(LinkList L) {
 }
 
 
-LinkList createLinkList(int *A, int n) {
+LinkList createLinkListFromArray(int *A, int n) {
     LinkList L = createEmptyLinkList();
     L->val = n;
     Node *tail = L;
@@ -90,6 +95,37 @@ void insertNodeTail(LinkList L, int n) {
     }
     tail->next = t;
     addNodeNum(L);
+}
+
+Node *popFrontNode(LinkList L) {
+    if (!L || !L->next)
+        return NULL;
+    Node *head = getLinkListHead(L);
+    Node *t = head->next;
+    head->next = head->next->next;
+    reduceNodeNum(L);
+    return t;
+}
+
+int popFrontVal(LinkList L) {
+    return popFrontNode(L)->val;
+}
+
+Node *popTailNode(LinkList L) {
+    if (!L || !L->next)
+        return NULL;
+    Node *tail = getLinkListHead(L);
+    while (tail->next) {
+        tail = tail->next;
+    }
+    Node *t = tail->next;
+    tail->next = tail->next->next;
+    reduceNodeNum(L);
+    return t;
+}
+
+int popTailVal(LinkList L) {
+    return popTailNode(L)->val;
 }
 
 // use insert sort to sort link list
@@ -140,7 +176,7 @@ void visitLinkList(LinkList L) {
     }
 }
 
-Array *transformToArray(LinkList L) {
+Array transformToArray(LinkList L) {
     Array a = (Array) malloc(sizeof(struct array));
     a->arr = (int *) malloc(sizeof(int) * L->val);
     a->size = L->val;

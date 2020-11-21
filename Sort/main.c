@@ -14,9 +14,11 @@
 #include "CountingSort.h"
 #include "../List/LinkList/SingleLinkList/SingleLinkList.h"
 #include "BucketSort.h"
+#include "RadixSort.h"
 
 int main() {
     int A[] = {5, 1, 3, 4, 2};
+//    int B[] = {12, 53, 24, 97, 77, 45, 88};
 //    bubbleSort(A, len(A));
 //    doubleBubbleSort(A, len(A));
 //    insertSort(A, len(A));
@@ -25,8 +27,8 @@ int main() {
 //    mergeSort_2(A, len(A));
 //    shellSort(A,len(A));
 //    countingSort(A, len(A));
-//    test LinkList
-//    LinkList L = createLinkList(A, len(A));
+//    // test LinkList
+//    LinkList L = createLinkListFromArray(A, len(A));
 //    visitLinkList(L);
 //    printf("\n");
 //    Array a = transformToArray(L);
@@ -34,6 +36,7 @@ int main() {
 //    for (int i = 0; i < a->size; i++) {
 //        printf("%d ", *(arr + i));
 //    }
-    bucketSort(A,len(A));
-    visitArray(A);
+//    bucketSort(A,len(A));
+//    radixSort(B, len(B), 2);
+//    visitArray(B);
 }
