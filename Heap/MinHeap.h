@@ -5,8 +5,9 @@
 #ifndef DATASTRUCT_MINHEAP_H
 #define DATASTRUCT_MINHEAP_H
 
-#include "stdlib.h"
+#include <stdlib.h>
 
+#define swap(A, B) int temp__=A;A=B;B=temp__
 
 typedef struct min_heap {
     int size;
