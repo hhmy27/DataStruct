@@ -2,12 +2,14 @@ Data Struct repo
 
 something notice and convention:
 * `.h` file contains function implementation for convenience
-* assume all number which maybe use is int type
-* use CLion 2020.2.3 compile
+* assume all number which maybe use is `int` type
+* use `CLion 2020.2.3` compile
 * compile standard is `c99`
 
 Coding style:
 * use CLion to format code indent
+* use under score case to name variable
+* use upper case to name const variable
 * use lower camel case to name function
 * use lower case and underline to name struct
 * use Upper camel case to name variable defined by `typedef`
