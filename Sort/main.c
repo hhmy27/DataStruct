@@ -3,20 +3,7 @@
 //
 
 #include <stdio.h>
-#include "tool.h"
-#include "BubbleSort.h"
-#include "QuickSort.h"
-#include "DoubleBubbleSort.h"
-#include "InsertSort.h"
-#include "SelectSort.h"
-#include "MergeSort_2.h"
-#include "ShellSort.h"
-#include "CountingSort.h"
-#include "../List/LinkList/SingleLinkList/SingleLinkList.h"
-#include "BucketSort.h"
-#include "RadixSort.h"
-#include "HeapSort.h"
-
+#include "Sort.h"
 
 int main() {
     int A[] = {5, 1, 3, 4, 2};
