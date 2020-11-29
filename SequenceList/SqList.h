@@ -8,30 +8,27 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct array {
-    int size;
-    int *arr;
-} *Array;
+//typedef struct array {
+//    int size;
+//    int *arr;
+//} *Array;
 
-typedef struct sq_list {
+typedef struct sequence_list {
     // max size
     int length;
     // practical size
     int size;
     int *arr;
-} *SqList;
+} sequence_list, *SqList;
 
 SqList createEmptySqList() {
-    SqList L = (SqList) malloc(sizeof(struct sq_list));
+    SqList L = (SqList) malloc(sizeof(struct sequence_list));
     L->arr = NULL;
     L->length = 0;
     L->size = 0;
     return L;
 }
 
-int *getSqListArray(SqList L) {
-    return L->arr;
-}
 
 int getSqListSize(SqList L) {
     return L->size;
@@ -92,14 +89,16 @@ void append(SqList L, int n) {
     addSize(L);
 }
 
-// return deep copy of L
-Array getArray(SqList L) {
-    Array a = (Array) malloc(sizeof(Array));
-    a->arr = (int *) malloc(sizeof(int) * L->size);
-    for (int i = 0; i < L->size; i++) {
-        a->arr[i] = L->arr[i];
-    }
-    return a;
-}
+
+
+//// return deep copy of L
+//Array getArray(SqList L) {
+//    Array a = (Array) malloc(sizeof(Array));
+//    a->arr = (int *) malloc(sizeof(int) * L->size);
+//    for (int i = 0; i < L->size; i++) {
+//        a->arr[i] = L->arr[i];
+//    }
+//    return a;
+//}
 
 #endif //DATASTRUCT_SEQUENCELIST_H

@@ -22,9 +22,9 @@ The following list is the struct of the repo:
   - BinaryTree
   - AVLTree
 
-- **LinkList**
+- **LinkedList**
 
-  All `LinkList` will have a head node that save the number of node in this link list
+  All `LinkedList` will have a head node that save the number of node in this link list
 
   - SingleLinkList
 
@@ -34,15 +34,11 @@ The following list is the struct of the repo:
 
     A double link list with have tail pointer
 
-- **List**
+- **SequenceList**
 
-  - ArrayList
+  - SqList
 
-    ArrayList has fixed length, will implemented use link list
-
-  - Array
-
-    Array implemented by link list so it has variable length
+    SqList has fixed length,  but it can enlarge or reduce length
 
 - **Stack**
 
@@ -68,10 +64,6 @@ Coding style:
 * use Upper camel case to name variable defined by `typedef`
 * function name with `__` denote is private function(for expect) 
 * function name with `_` will carry some addition information, like `mergeSort_2` denote it is 2 road merge sort
-
-
-
-
 
 I make a mind map to help you understand this repo struct
 

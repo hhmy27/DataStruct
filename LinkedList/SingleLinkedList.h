@@ -23,11 +23,11 @@ typedef struct array {
 } *Array;
 
 // 1 denote empty
-int isEmptyLinkList(LinkList L) {
+int isEmptyLinkedList(LinkList L) {
     return L->val == 0;
 }
 
-LinkList createEmptyLinkList() {
+LinkList createEmptyLinkedList() {
     LinkList L = (LinkList) malloc(sizeof(HeadNode));
     L->val = 0;
     L->next = NULL;
@@ -43,13 +43,13 @@ Node *createNodePointer(int n) {
 }
 
 // get head node
-Node *getLinkListHead(LinkList L) {
+Node *getLinkedListHead(LinkList L) {
     return L;
 }
 
 
-LinkList createLinkListFromArray(int *A, int n) {
-    LinkList L = createEmptyLinkList();
+LinkList createLinkedListFromArray(int *A, int n) {
+    LinkList L = createEmptyLinkedList();
     L->val = n;
     Node *tail = L;
     for (int i = 0; i < n; i++) {
@@ -89,7 +89,7 @@ void insertNodeHead(LinkList L, int n) {
 // tail insert
 void insertNodeTail(LinkList L, int n) {
     Node *t = createNodePointer(n);
-    Node *tail = getLinkListHead(L);
+    Node *tail = getLinkedListHead(L);
     while (tail->next) {
         tail = tail->next;
     }
@@ -100,7 +100,7 @@ void insertNodeTail(LinkList L, int n) {
 Node *popFrontNode(LinkList L) {
     if (!L || !L->next)
         return NULL;
-    Node *head = getLinkListHead(L);
+    Node *head = getLinkedListHead(L);
     Node *t = head->next;
     head->next = head->next->next;
     reduceNodeNum(L);
@@ -114,7 +114,7 @@ int popFrontVal(LinkList L) {
 Node *popTailNode(LinkList L) {
     if (!L || !L->next)
         return NULL;
-    Node *tail = getLinkListHead(L);
+    Node *tail = getLinkedListHead(L);
     while (tail->next) {
         tail = tail->next;
     }
@@ -130,7 +130,7 @@ int popTailVal(LinkList L) {
 
 // use insert sort to sort link list
 // O(nlogn)
-void sortLinkList(LinkList L) {
+void sortLinkedList(LinkList L) {
     // empty pointer, empty list, just one node list
     if (!L || !L->next || !L->next->next)
         return;
@@ -167,8 +167,8 @@ void sortLinkList(LinkList L) {
     }
 }
 
-void visitLinkList(LinkList L) {
-    Node *head = getLinkListHead(L);
+void visitLinkedList(LinkList L) {
+    Node *head = getLinkedListHead(L);
     Node *t = head->next;
     while (t) {
         printf("%d ", t->val);

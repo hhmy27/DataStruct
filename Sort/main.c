@@ -17,8 +17,8 @@ int main() {
 //    shellSort(A,len(A));
 //    countingSort(A, len(A));
 //    // test LinkList
-//    LinkList L = createLinkListFromArray(A, len(A));
-//    visitLinkList(L);
+//    LinkList L = createLinkedListFromArray(A, len(A));
+//    visitLinkedList(L);
 //    printf("\n");
 //    Array a = transformToArray(L);
 //    int *arr = a->arr;

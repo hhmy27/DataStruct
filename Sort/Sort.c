@@ -3,7 +3,7 @@
 //
 
 #include "Sort.h"
-#include "../List/LinkList/SingleLinkList/SingleLinkList.h"
+#include "../LinkedList/SingleLinkedList.h"
 #include "../Heap/MaxHeap.h"
 
 void bubbleSort(int *A, int n) {
@@ -32,7 +32,7 @@ void bucketSort(int *A, int n) {
     int d = max - min + 1;
     LinkList buckets[d];
     for (int i = 0; i < d; i++) {
-        buckets[i] = createEmptyLinkList();
+        buckets[i] = createEmptyLinkedList();
     }
 
     for (int i = 0; i < n; i++) {
@@ -42,7 +42,7 @@ void bucketSort(int *A, int n) {
 
     // sort bucket
     for (int i = 0; i < d; i++) {
-        sortLinkList(buckets[i]);
+        sortLinkedList(buckets[i]);
     }
 
     int ind = 0;
@@ -178,7 +178,7 @@ void quickSort__(int *A, int left, int right) {
     quickSort__(A, i + 1, right);
 }
 
-void quicksort(int *A, int n) {
+void quickSort(int *A, int n) {
     quickSort__(A, 0, n - 1);
 }
 
@@ -195,7 +195,7 @@ void radixSort(int *A, int n, int m) {
     // 10 base
     LinkList container[10];
     for (int i = 0; i < BASE; i++) {
-        container[i] = createEmptyLinkList();
+        container[i] = createEmptyLinkedList();
     }
     // process all position
     for (int i = 1; i <= m; i++) {
@@ -209,7 +209,7 @@ void radixSort(int *A, int n, int m) {
         // gather number in contain
         int ind = 0;
         for (int k = 0; k < BASE; k++) {
-            while (!isEmptyLinkList(container[k]))
+            while (!isEmptyLinkedList(container[k]))
                 A[ind++] = popFrontVal(container[k]);
         }
     }
