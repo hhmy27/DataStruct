@@ -1,36 +1,42 @@
 //
-// Created by hmy on 2020/11/20.
+// Created by hmy on 2020/11/30.
 //
 
-#ifndef DATASTRUCT_SINGLELINKLIST_H
-#define DATASTRUCT_SINGLELINKLIST_H
+#ifndef DATASTRUCT_SINGLELINKEDLIST_H
+#define DATASTRUCT_SINGLELINKEDLIST_H
 
 #include <stdlib.h>
 #include <stdio.h>
 
-// Single link list has head node which store the number of node
-// this version has not tail pointer, so operate at tail will iterate all link list
-// L is head node,L->next is first node
-
-typedef struct node {
-    int val;
-    struct node *next;
-} Node, HeadNode, *LinkList;
+// single linked list without dummy head
+// this version has tail pointer
 
 typedef struct array {
     int *arr;
     int size;
 } *Array;
 
+typedef struct node {
+    int val;
+    struct node *next;
+} Node;
+
+typedef struct linked_list {
+    Node *head;
+    int size;
+    Node *tail;
+} *LinkedList;
+
 // 1 denote empty
-int isEmptyLinkedList(LinkList L) {
-    return L->val == 0;
+int isEmptyLinkedList(LinkedList L) {
+    return L->size == 0;
 }
 
-LinkList createEmptyLinkedList() {
-    LinkList L = (LinkList) malloc(sizeof(HeadNode));
-    L->val = 0;
-    L->next = NULL;
+LinkedList createEmptyLinkedList() {
+    LinkedList L = (LinkedList) malloc(sizeof(LinkedList));
+    L->size = 0;
+    L->head = NULL;
+    L->tail = NULL;
     return L;
 }
 
@@ -43,103 +49,142 @@ Node *createNodePointer(int n) {
 }
 
 // get head node
-Node *getLinkedListHead(LinkList L) {
-    return L;
+Node *getLinkedListHead(LinkedList L) {
+    return L->head;
 }
 
 
-LinkList createLinkedListFromArray(int *A, int n) {
-    LinkList L = createEmptyLinkedList();
-    L->val = n;
-    Node *tail = L;
-    for (int i = 0; i < n; i++) {
-        Node *t = (Node *) malloc(sizeof(Node));
-        t->val = A[i];
-        t->next = NULL;
-        tail->next = t;
-        tail = t;
+void addNodeNum(LinkedList L) {
+    if (!L)
+        return;
+    L->size += 1;
+}
+
+void resetPointer(LinkedList L) {
+    L->head = L->tail = NULL;
+}
+
+
+void reduceNodeNum(LinkedList L) {
+    if (!L || L->size == 0)
+        return;
+    L->size -= 1;
+    if (L->size == 0) {
+        resetPointer(L);
     }
-    return L;
-}
-
-void addNodeNum(LinkList L) {
-    if (!L)
-        return;
-    L->val += 1;
-}
-
-void reduceNodeNum(LinkList L) {
-    if (!L)
-        return;
-    L->val -= 1;
 }
 
 // head insert
-void insertNodeHead(LinkList L, int n) {
+void insertNodeHead(LinkedList L, int n) {
     if (!L)
         return;
-//    Node *t = (Node *) malloc(sizeof(Node));
     Node *t = createNodePointer(n);
-    t->val = n;
-    t->next = L->next;
-    L->next = t;
+    t->next = L->head;
+    L->head = t;
+    if (L->size == 0)
+        L->tail = L->head;
     addNodeNum(L);
 }
 
 // tail insert
-void insertNodeTail(LinkList L, int n) {
+void insertNodeTail(LinkedList L, int n) {
     Node *t = createNodePointer(n);
-    Node *tail = getLinkedListHead(L);
-    while (tail->next) {
-        tail = tail->next;
+    if (L->size != 0) {
+        Node *tail = L->tail;
+        tail->next = t;
+    } else {
+        L->head = L->tail = t;
     }
-    tail->next = t;
     addNodeNum(L);
 }
 
-Node *popFrontNode(LinkList L) {
-    if (!L || !L->next)
-        return NULL;
-    Node *head = getLinkedListHead(L);
-    Node *t = head->next;
-    head->next = head->next->next;
-    reduceNodeNum(L);
-    return t;
+LinkedList createLinkedListFromArray(int *A, int n) {
+    LinkedList L = createEmptyLinkedList();
+    Node *t = (Node *) malloc(sizeof(Node));
+    insertNodeHead(L, A[0]);
+    for (int i = 1; i < n; i++) {
+        Node *t = (Node *) malloc(sizeof(Node));
+        t->val = A[i];
+        t->next = NULL;
+        L->tail->next = t;
+        L->tail = t;
+        addNodeNum(L);
+    }
+    return L;
 }
 
-int popFrontVal(LinkList L) {
+Node *popFrontNode(LinkedList L) {
+    if (!L || !L->head)
+        return NULL;
+    Node *head = L->head;
+    // update head node
+    L->head = head->next;
+    head->next = NULL;
+    reduceNodeNum(L);
+    return head;
+}
+
+int popFrontVal(LinkedList L) {
     return popFrontNode(L)->val;
 }
 
-Node *popTailNode(LinkList L) {
-    if (!L || !L->next)
+Node *popTailNode(LinkedList L) {
+    if (!L || !L->head)
         return NULL;
-    Node *tail = getLinkedListHead(L);
-    while (tail->next) {
-        tail = tail->next;
+    if (L->size == 1) {
+        return popFrontNode(L);
+    } else {
+        Node *t = L->head;
+        while (t->next != L->tail) {
+            t = t->next;
+        }
+        Node *n = t->next;
+        t->next = NULL;
+        // update tail
+        L->tail = t;
+        reduceNodeNum(L);
+        return n;
     }
-    Node *t = tail->next;
-    tail->next = tail->next->next;
-    reduceNodeNum(L);
-    return t;
 }
 
-int popTailVal(LinkList L) {
+Node *popNodeAtPos(LinkedList L, int pos) {
+    // empty linked list
+    if (!L || !L->head)
+        return NULL;
+    if (pos == 1)
+        return popFrontNode(L);
+    if (pos == L->size)
+        return popTailNode(L);
+    Node *pre = L->head;
+    for (int i = 1; i < pos - 1; i++) {
+        pre = pre->next;
+    }
+    Node *n = pre->next;
+    pre->next = n->next;
+    n->next = NULL;
+    reduceNodeNum(L);
+    return n;
+}
+
+int popTailVal(LinkedList L) {
     return popTailNode(L)->val;
 }
 
 // use insert sort to sort link list
 // O(nlogn)
-void sortLinkedList(LinkList L) {
+void sortLinkedList(LinkedList L) {
     // empty pointer, empty list, just one node list
-    if (!L || !L->next || !L->next->next)
+    if (!L || !L->head || !L->head->next)
         return;
-    // first node is head next
-    Node *first = L->next;
-    Node *pre = first;
+
+    Node *dummy_head = createNodePointer(-1);
+    dummy_head->next = L->head;
+
+    Node *pre = L->head;
     Node *i = pre->next;
+
     // last node of sorted link list
-    Node *last = first;
+    Node *last = pre;
     while (i) {
         // already sorted
         if (pre->val <= i->val) {
@@ -152,7 +197,7 @@ void sortLinkedList(LinkList L) {
         if (last->val <= i->val)
             j = last;   // start iterate at last insert node
         else
-            j = L;      // start iterate at first node
+            j = dummy_head;      // start iterate at first node
 
         // find need insert palace
         while (j->next->val <= i->val)
@@ -165,22 +210,28 @@ void sortLinkedList(LinkList L) {
         last = i;
         i = pre->next;
     }
+
+    L->head = dummy_head->next;
+    L->tail = pre;
+    dummy_head->next = NULL;
+    free(dummy_head);
+
 }
 
-void visitLinkedList(LinkList L) {
-    Node *head = getLinkedListHead(L);
-    Node *t = head->next;
+void visitLinkedList(LinkedList L) {
+    Node *t = L->head;
     while (t) {
         printf("%d ", t->val);
         t = t->next;
     }
+    printf("\n");
 }
 
-Array transformToArray(LinkList L) {
+Array transformToArray(LinkedList L) {
     Array a = (Array) malloc(sizeof(struct array));
-    a->arr = (int *) malloc(sizeof(int) * L->val);
-    a->size = L->val;
-    Node *t = L->next;
+    a->arr = (int *) malloc(sizeof(int) * L->size);
+    a->size = L->size;
+    Node *t = L->head;
     int i = 0;
     while (t) {
         a->arr[i++] = t->val;
@@ -189,5 +240,4 @@ Array transformToArray(LinkList L) {
     return a;
 }
 
-
-#endif //DATASTRUCT_SINGLELINKLIST_H
+#endif //DATASTRUCT_SINGLELINKEDLIST_H

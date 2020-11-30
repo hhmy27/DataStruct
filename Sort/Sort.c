@@ -30,7 +30,7 @@ void bucketSort(int *A, int n) {
     }
 
     int d = max - min + 1;
-    LinkList buckets[d];
+    LinkedList buckets[d];
     for (int i = 0; i < d; i++) {
         buckets[i] = createEmptyLinkedList();
     }
@@ -193,7 +193,7 @@ int getNumInPos(int num, int pos) {
 void radixSort(int *A, int n, int m) {
     const int BASE = 10;
     // 10 base
-    LinkList container[10];
+    LinkedList container[10];
     for (int i = 0; i < BASE; i++) {
         container[i] = createEmptyLinkedList();
     }
