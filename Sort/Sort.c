@@ -3,8 +3,10 @@
 //
 
 #include "Sort.h"
+#include "../tool.h"
 #include "../LinkedList/SingleLinkedList.h"
 #include "../Heap/MaxHeap.h"
+
 
 void bubbleSort(int *A, int n) {
     for (int i = 0; i < n; i++) {
@@ -37,7 +39,7 @@ void bucketSort(int *A, int n) {
 
     for (int i = 0; i < n; i++) {
         // map function: f(A[i]) = ((A[i] - min) / BUCKET_SIZE)
-        insertNodeHead(buckets[(A[i] - min) / BUCKET_SIZE], A[i]);
+        insertNodeHeadToLinkedList(buckets[(A[i] - min) / BUCKET_SIZE], A[i]);
     }
 
     // sort bucket
@@ -47,7 +49,7 @@ void bucketSort(int *A, int n) {
 
     int ind = 0;
     for (int i = 0; i < d; i++) {
-        Array a = (Array) transformToArray(buckets[i]);
+        Array a = (Array) linkedListTransformToArray(buckets[i]);
         int *arr = a->arr;
         for (int j = 0; j < a->size; j++) {
             A[ind++] = arr[j];
@@ -204,13 +206,13 @@ void radixSort(int *A, int n, int m) {
             // get current number
             int tmp = A[j];
             // insert to corresponding contain
-            insertNodeTail(container[getNumInPos(tmp, i)], tmp);
+            insertNodeTailToLinkedList(container[getNumInPos(tmp, i)], tmp);
         }
         // gather number in contain
         int ind = 0;
         for (int k = 0; k < BASE; k++) {
             while (!isEmptyLinkedList(container[k]))
-                A[ind++] = popFrontVal(container[k]);
+                A[ind++] = popFrontNodeFromLinkedList(container[k])->val;
         }
     }
 }

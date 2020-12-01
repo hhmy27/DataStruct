@@ -6,6 +6,8 @@
 #define DATASTRUCT_MAXHEAP_H
 
 #include <stdlib.h>
+#include "../tool.h"
+
 
 typedef struct max_heap {
     int size;
@@ -28,7 +30,7 @@ void maxHeapify(MaxHeap heap, int ind) {
         min_ind = right;
 
     if (min_ind != ind) {
-        swap(arr[min_ind], arr[ind]);
+        swap(arr[ind], arr[min_ind]);
         maxHeapify(heap, min_ind);
     }
 }

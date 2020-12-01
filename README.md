@@ -22,9 +22,9 @@ The following list is the struct of the repo:
   - BinaryTree
   - AVLTree
 
-- **LinkedList**
+- **LinkedListWithTailPointer**
 
-  All `LinkedList` will have a head node that save the number of node in this link list
+  All `LinkedListWithTailPointer` will have a head node that save the number of node in this link list
 
   - SingleLinkList
 

@@ -5,7 +5,6 @@
 #ifndef DATASTRUCT_SORT_H
 #define DATASTRUCT_SORT_H
 
-#include "tool.h"
 
 
 void bubbleSort(int *A, int n);

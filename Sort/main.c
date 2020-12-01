@@ -5,7 +5,9 @@
 #include <stdio.h>
 #include "Sort.h"
 
+#include "../LinkedList/SingleLinkedListWithTailPointer.h"
 #include "../LinkedList/SingleLinkedList.h"
+
 
 int main() {
     int A[] = {5, 1, 3, 4, 2};
@@ -19,8 +21,8 @@ int main() {
 //    shellSort(A,len(A));
 //    countingSort(A, len(A));
 //    // test LinkList
-//    LinkList L = createLinkedListFromArray(A, len(A));
-//    visitLinkedList(L);
+//    LinkList L = createLinkedListWithTailPointerFromArray(A, len(A));
+//    visitLinkedListWithTailPointer(L);
 //    printf("\n");
 //    Array a = transformToArray(L);
 //    int *arr = a->arr;
@@ -33,10 +35,27 @@ int main() {
 //    visitArray(B);
 //    heapSort(A, len(A));
 //    visitArray(A);
+//    LinkedListWithTailPointer L = createLinkedListWithTailPointerFromArray(A, len(A));
+//    visitLinkedListWithTailPointer(L);
+//    popTailNodeFromLinkedListWithTailPointer(L);
+//    visitLinkedListWithTailPointer(L);
+//    popNodeFromLinkedListWithTailPointerAtPos(L, 1);
+//    visitLinkedListWithTailPointer(L);
+//    insertNodeToLinkedListWithTailPointerBeforePos(L, 1, 2);
+//    visitLinkedListWithTailPointer(L);
+//    sortLinkedListWithTailPointer(L);
+//    visitLinkedListWithTailPointer(L);
+
 //    LinkedList L = createLinkedListFromArray(A, len(A));
 //    visitLinkedList(L);
-//    printf("\n");
-//    popTailNode(L);
+//    popFrontNodeFromLinkedList(L);
 //    visitLinkedList(L);
-
+//    popNodeFromLinkedListAtPos(L, 2);
+//    visitLinkedList(L);
+//    InsertNodeToLinkedListBeforePos(L, 1, 3);
+//    visitLinkedList(L);
+//    InsertNodeToLinkedListBeforePos(L, 3, 5);
+//    visitLinkedList(L);
+//    sortLinkedList(L);
+//    visitLinkedList(L);
 }
