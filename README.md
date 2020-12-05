@@ -36,9 +36,11 @@ The following list is the struct of the repo:
 
   function:
 
-  > createListNode
-  > createLinkedList
-  > visitLinkedList
+  ```c
+  createListNode
+  createLinkedList
+  visitLinkedList
+  ```
 
   I recommand you use ListNode to quickly construct a linked list
 
@@ -62,20 +64,22 @@ The following list is the struct of the repo:
 
   function:
 
-  > isEmptyLinkedList
-  > createEmptyLinkedList
-  > addLinkedListNodeNum
-  > reduceLinkedListNodeNum
-  > insertNodeHeadToLinkedList
-  > insertNodeTailToLinkedList
-  > createLinkedListFromArray
-  > popFrontNodeFromLinkedList
-  > popTailNodeFromLinkedList
-  > popNodeFromLinkedListAtPos
-  > insertNodeToLinkedListBeforePos
-  > sortLinkedList
-  > visitLinkedList
-  > linkedListTransformToArray
+  ```C
+  isEmptyLinkedList
+  createEmptyLinkedList
+  addLinkedListNodeNum
+  reduceLinkedListNodeNum
+  insertNodeHeadToLinkedList
+  insertNodeTailToLinkedList
+  createLinkedListFromArray
+  popFrontNodeFromLinkedList
+  popTailNodeFromLinkedList
+  popNodeFromLinkedListAtPos
+  insertNodeToLinkedListBeforePos
+  sortLinkedList
+  visitLinkedList
+  linkedListTransformToArray
+  ```
 
 - SingleLinkedListWithTailPointer
 
@@ -98,21 +102,23 @@ The following list is the struct of the repo:
 
   function:
 
-  > isEmptyLinkedListWithTailPointer
-  > createEmptyLinkedListWithTailPointer
-  > addLinkedListWithTailPointerNodeNum
-  > resetLinkedListWithTailPointerPointer
-  > reduceLinkedListWithTailPointerNodeNum
-  > insertNodeHeadToLinkedListWithTailPointer
-  > insertNodeTailToLinkedListWithTailPointer
-  > createLinkedListWithTailPointerFromArray
-  > popFrontNodeFromLinkedListWithTailPointer
-  > popTailNodeFromLinkedListWithTailPointer
-  > popNodeFromLinkedListWithTailPointerAtPos
-  > insertNodeToLinkedListWithTailPointerBeforePos
-  > sortLinkedListWithTailPointer
-  > visitLinkedListWithTailPointer
-  > linkedListWithTailPointerTransformToArray
+  ```c
+  isEmptyLinkedListWithTailPointer
+  createEmptyLinkedListWithTailPointer
+  addLinkedListWithTailPointerNodeNum
+  resetLinkedListWithTailPointerPointer
+  reduceLinkedListWithTailPointerNodeNum
+  insertNodeHeadToLinkedListWithTailPointer
+  insertNodeTailToLinkedListWithTailPointer
+  createLinkedListWithTailPointerFromArray
+  popFrontNodeFromLinkedListWithTailPointer
+  popTailNodeFromLinkedListWithTailPointer
+  popNodeFromLinkedListWithTailPointerAtPos
+  insertNodeToLinkedListWithTailPointerBeforePos
+  sortLinkedListWithTailPointer
+  visitLinkedListWithTailPointer
+  linkedListWithTailPointerTransformToArray
+  ```
 
 notice:
 
