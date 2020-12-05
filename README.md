@@ -17,22 +17,108 @@ The following list is the struct of the repo:
 
 (Some of these data structures have not yet been implemented)
 
-- **Tree**
+## LinkedList
 
-  - BinaryTree
-  - AVLTree
+- ListNode
 
-- **LinkedListWithTailPointer**
+  leetcode style linked list
 
-  All `LinkedListWithTailPointer` will have a head node that save the number of node in this link list
+  you can use it construct linked list to test your algorithm vaild or not
 
-  - SingleLinkList
+  define:
 
-    A single link list with have tail pointer
+  ```c
+  typedef struct list_node {
+      int val;
+      struct list_node *next;
+  } ListNode;
+  ```
 
-  - DoubleLinkList
+  function:
 
-    A double link list with have tail pointer
+  > createListNode
+  > createLinkedList
+  > visitLinkedList
+
+  I recommand you use ListNode to quickly construct a linked list
+
+- SingleLinkList
+
+  A single linked list
+
+  define:
+
+  ```c
+  typedef struct node {
+      int val;
+      struct node *next;
+  } Node;
+  
+  typedef struct linked_list {
+      Node *head;
+      int size;
+  } *LinkedList;
+  ```
+
+  function:
+
+  > isEmptyLinkedList
+  > createEmptyLinkedList
+  > addLinkedListNodeNum
+  > reduceLinkedListNodeNum
+  > insertNodeHeadToLinkedList
+  > insertNodeTailToLinkedList
+  > createLinkedListFromArray
+  > popFrontNodeFromLinkedList
+  > popTailNodeFromLinkedList
+  > popNodeFromLinkedListAtPos
+  > insertNodeToLinkedListBeforePos
+  > sortLinkedList
+  > visitLinkedList
+  > linkedListTransformToArray
+
+- SingleLinkedListWithTailPointer
+
+  a single linked list with tail pointer
+
+  define:
+
+  ```C
+  typedef struct node {
+      int val;
+      struct node *next;
+  } Node;
+  
+  typedef struct linked_list_with_tail_pointer {
+      Node *head;
+      int size;
+      Node *tail;
+  } *LinkedListWithTailPointer;
+  ```
+
+  function:
+
+  > isEmptyLinkedListWithTailPointer
+  > createEmptyLinkedListWithTailPointer
+  > addLinkedListWithTailPointerNodeNum
+  > resetLinkedListWithTailPointerPointer
+  > reduceLinkedListWithTailPointerNodeNum
+  > insertNodeHeadToLinkedListWithTailPointer
+  > insertNodeTailToLinkedListWithTailPointer
+  > createLinkedListWithTailPointerFromArray
+  > popFrontNodeFromLinkedListWithTailPointer
+  > popTailNodeFromLinkedListWithTailPointer
+  > popNodeFromLinkedListWithTailPointerAtPos
+  > insertNodeToLinkedListWithTailPointerBeforePos
+  > sortLinkedListWithTailPointer
+  > visitLinkedListWithTailPointer
+  > linkedListWithTailPointerTransformToArray
+
+notice:
+
+> do not use `ListNode.h` and `SingleLinkedList.h` meantime, because of function name `createLinkedList` conflict
+
+
 
 - **SequenceList**
 

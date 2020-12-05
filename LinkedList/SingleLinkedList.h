@@ -10,9 +10,8 @@
 
 #include "Node.h"
 
-// Single link list has head node which store the number of node
 // this version has not tail pointer, so operate at tail will iterate all link list
-// L is head node,L->next is first node
+// head node is first node
 
 //typedef struct node {
 //    int val;
