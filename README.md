@@ -1,3 +1,5 @@
+[toc]
+
 Data Struct repo
 
 Something notice and convention:
@@ -120,31 +122,91 @@ The following list is the struct of the repo:
   linkedListWithTailPointerTransformToArray
   ```
 
-notice:
-
-> do not use `ListNode.h` and `SingleLinkedList.h` meantime, because of function name `createLinkedList` conflict
 
 
+## Tree
 
-- **SequenceList**
+TODO
 
-  - SqList
+## Stack
 
-    SqList has fixed length,  but it can enlarge or reduce length
+TODO
 
-- **Stack**
+## Heap
 
-  just a stack implemented by link list
+- MaxHeap
 
-- **Deque**
+  define:
 
-  A deque implemented by double link list
+  ```c
+  typedef struct max_heap {
+      int size;
+      int *array;
+  } max_heap, *MaxHeap;
+  ```
+
+  function:
+
+  ```c
+  maxHeapify
+  createMaxHeap
+  createMaxHeap_deep
+  popMaxHeapRoot
+  ```
+
+- MinHeap
+
+  define:
+
+  ```C
+  typedef struct min_heap {
+      int size;
+      int *array;
+  } min_heap, *MinHeap;
+  ```
+
+  function:
+
+  ```c
+  minHeapify
+  createMinHeap
+  createMinHeap_deep
+  popMinHeapRoot
+  ```
+
+
 
 The following list is the method of the repo:
 
-- Sort
+## Sort
 
-  implement 10 sort method in this repo
+implement 10 sort method in this repo
+
+```c
+void bubbleSort(int *A, int n);
+
+void bucketSort(int *A, int n);
+
+void countingSort(int *A, int n);
+
+void doubleBubbleSort(int *A, int n);
+
+void heapSort(int *A, int n);
+
+void insertSort(int *A, int n);
+
+void mergeSort_2(int *A, int n);
+
+void quickSort(int *A, int n);
+
+void radixSort(int *A, int n, int m);
+
+void selectSort(int *A, int n);
+
+void shellSort(int *A, int n);
+```
+
+---
 
 Coding style:
 
